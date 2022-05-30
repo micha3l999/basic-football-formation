@@ -1,6 +1,6 @@
 import React from "react";
-import { GAME_LINEUP } from "../constants/gameLineup";
 import "./Field.css";
+import _ from "lodash";
 
 export const Field = ({
   currentLineup,
@@ -9,6 +9,7 @@ export const Field = ({
   allPlayers,
   addPlayerToField,
   sendPlayerOff,
+  allLineups,
 }) => {
   // State to manage the hidden property of all options of elements
   const [lineupPositionsOpt, setLineupPositionOpt] = React.useState(
@@ -60,57 +61,58 @@ export const Field = ({
   return (
     <>
       <div className="matchcenter-field">
-        {Array(11)
-          .fill(0)
-          .map((_, index) => {
-            return (
-              <div
-                id={index}
-                className="player"
-                key={index}
-                style={{
-                  left: `${GAME_LINEUP[currentLineup]["x"][index]}px`,
-                  top: `${GAME_LINEUP[currentLineup]["y"][index]}px`,
-                  display: "block",
-                }}
-              >
-                <div className="player-nr">
-                  {playersOnField[index]?.gamePosition ?? "-"}
-                </div>
-
-                <div className="player-name">
-                  {playersOnField[index]?.name?.split(" ")[0] ?? ""}
-                </div>
-                <a
-                  className="click-manage"
-                  onClick={onClickSelect}
-                  name={index}
-                ></a>
+        {!_.isEmpty(allLineups) &&
+          Array(11)
+            .fill(0)
+            .map((_, index) => {
+              return (
                 <div
-                  className="players-options"
-                  hidden={lineupPositionsOpt[index]}
+                  id={index}
+                  className="player"
+                  key={index}
+                  style={{
+                    left: `${allLineups[currentLineup]["x"][index] ?? 0}px`,
+                    top: `${allLineups[currentLineup]["y"][index] ?? 0}px`,
+                    display: "block",
+                  }}
                 >
-                  {allPlayers.map((player, playerIndex) => {
-                    return (
-                      <div
-                        className="option"
-                        key={player.name}
-                        onClick={onClickOption}
-                        id={index + "-" + playerIndex}
-                      >
-                        {player.name}
-                      </div>
-                    );
-                  })}
+                  <div className="player-nr">
+                    {playersOnField[index]?.gamePosition ?? "-"}
+                  </div>
+
+                  <div className="player-name">
+                    {playersOnField[index]?.name?.split(" ")[0] ?? ""}
+                  </div>
+                  <a
+                    className="click-manage"
+                    onClick={onClickSelect}
+                    name={index}
+                  ></a>
+                  <div
+                    className="players-options"
+                    hidden={lineupPositionsOpt[index]}
+                  >
+                    {allPlayers.map((player, playerIndex) => {
+                      return (
+                        <div
+                          className="option"
+                          key={player.name}
+                          onClick={onClickOption}
+                          id={index + "-" + playerIndex}
+                        >
+                          {player.name}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
       </div>
       <div className="lineups">
         <div className="subtitle is-6">Lineups</div>
         <div className="buttons">
-          {Object.keys(GAME_LINEUP).map((key) => {
+          {Object.keys(allLineups).map((key) => {
             return (
               <button
                 id={key}

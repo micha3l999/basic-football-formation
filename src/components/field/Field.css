@@ -66,50 +66,6 @@
   background: linear-gradient(top, #adcf35, #8ac439);
 }
 
-.matchcenter-field .player-yellowcard {
-  width: 8px;
-  height: 12px;
-  border: 1px solid #797900;
-  position: absolute;
-  top: -8px;
-  right: 5px;
-  display: none;
-  background: -moz-linear-gradient(top, #fdf875, #e8eb00);
-  background: -webkit-gradient(
-    linear,
-    center top,
-    center bottom,
-    from(#fdf875),
-    to(#e8eb00)
-  );
-  background: -o-linear-gradient(top, #fdf875, #e8eb00);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf875', endColorstr='#e8eb00');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf875', endColorstr='#e8eb00')";
-  background: linear-gradient(top, #fdf875, #e8eb00);
-}
-
-.matchcenter-field .player-redcard {
-  width: 8px;
-  height: 12px;
-  border: 1px solid #a50000;
-  position: absolute;
-  top: -8px;
-  right: 2px;
-  display: none;
-  background: -moz-linear-gradient(top, #fd7575, #eb0000);
-  background: -webkit-gradient(
-    linear,
-    center top,
-    center bottom,
-    from(#fd7575),
-    to(#eb0000)
-  );
-  background: -o-linear-gradient(top, #fd7575, #eb0000);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fd7575', endColorstr='#eb0000');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fd7575', endColorstr='#eb0000')";
-  background: linear-gradient(top, #fd7575, #eb0000);
-}
-
 .lineups {
   text-align: left;
   position: absolute;
