@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Datepicker from "../datepicker/Datepicker";
 import "./Form.css";
 
 export const Form = ({ allPlayers, addPlayers }) => {
@@ -27,6 +28,11 @@ export const Form = ({ allPlayers, addPlayers }) => {
   const onChange = (e) => {
     e.preventDefault();
     setPlayer({ ...player, [e.target.name]: e.target.value });
+  };
+
+  // Function to change the date from the datepicker
+  const onChangeBirthDate = ({ date }) => {
+    setPlayer({ ...player, birthDate: date });
   };
 
   return (
@@ -75,14 +81,10 @@ export const Form = ({ allPlayers, addPlayers }) => {
         <div className="field">
           <label className="label">Birth date</label>
           <div className="control">
-            <input
-              type="text"
-              className="input"
-              placeholder="e.g. 18-05-1999"
-              name="birthDate"
-              onChange={onChange}
-              value={player.birthDate ?? ""}
-            ></input>
+            <Datepicker
+              setDate={onChangeBirthDate}
+              date={player.birthDate ?? ""}
+            ></Datepicker>
           </div>
         </div>
         <div className="field">
