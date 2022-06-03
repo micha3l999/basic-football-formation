@@ -8,7 +8,6 @@ const Datepicker = ({ date, setDate }) => {
     <DatePicker
       selected={date}
       onChange={(date = Date()) => setDate({ date })}
-      customInput={}
     ></DatePicker>
   );
 };
