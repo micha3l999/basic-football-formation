@@ -8,6 +8,9 @@ const Datepicker = ({ date, setDate }) => {
     <DatePicker
       selected={date}
       onChange={(date = Date()) => setDate({ date })}
+      customInput={
+        <input type="text" className="input" name="gamePosition"></input>
+      }
     ></DatePicker>
   );
 };
