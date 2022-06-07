@@ -30,7 +30,7 @@ export const Form = ({ allPlayers, addPlayers }) => {
   };
 
   return (
-    <div>
+    <div className="form">
       <form>
         <div className="form-content">
           <h2 className="subtitle is-4">Register player</h2>
