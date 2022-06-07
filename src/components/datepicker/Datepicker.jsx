@@ -10,12 +10,7 @@ const Datepicker = ({ date, setDate }) => {
       onChange={(date = Date()) => setDate({ date })}
       placeholderText={"e.g. 18/05/1999"}
       customInput={
-        <input
-          type="text"
-          className="input"
-          name="gamePosition"
-          readOnly={true}
-        ></input>
+        <input type="text" className="input" name="gamePosition"></input>
       }
     ></DatePicker>
   );
